@@ -17,7 +17,7 @@ typedef struct Edrv_Act_1{
 
 }Edrv_Act_1;
 
-void organizar_mensagens(Edrv_Act_1 *a){
+void organizar_mensagens_rx(Edrv_Act_1 *a){
 
     a->Checksum_actual_torque = a->msg[0];
     a->Alive_counter_actual_torque = a->msg[1] >> 4;
@@ -42,7 +42,7 @@ int main(){
     teste.msg[6] = 0b10111000;
     teste.msg[7] = 0b01010000;
 
-    organizar_mensagens(&teste);
+    organizar_mensagens_rx(&teste);
 
     printf("Checksum actual torque: %d\n", teste.Checksum_actual_torque);
 
